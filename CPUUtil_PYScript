@@ -1,4 +1,4 @@
-CPU Utilization Script:
+1. CPU Utilization Script:
 
 from multiprocessing import Pool
 from multiprocessing import cpu_count
@@ -15,3 +15,19 @@ if __name__ == '__main__':
     print ('-' * 20)
     pool = Pool(processes)
     pool.map(f, range(processes))
+
+2. CPU Utilization Script:
+
+from multiprocessing import Pool
+
+def f(x):
+    # put any cpu (only) consuming operation here. I have given 1 below - 
+    while True:
+    x * x
+    
+# decide how many cpus you need to load with.
+no_of_cpu_to_be_consumed = 3
+
+p = Pool(processes_of_cpu_to_be_consumed)
+p.map(f, range(no_of_cpu_to_be_consumed))
+
